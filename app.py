@@ -19,8 +19,7 @@ from langchain.agents import AgentType
 load_dotenv()
 tool_names = ["wolfram-alpha"]
 tools = load_tools(tool_names)
-
-llm = OpenAI(temperature=0.9)
+llm = OpenAI(model="gpt-4o-mini", temperature=0.9)
 
 search = SerpAPIWrapper()
 agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
